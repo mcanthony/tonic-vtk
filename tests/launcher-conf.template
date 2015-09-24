@@ -1,0 +1,34 @@
+{
+    "configuration": {
+        "host" : "localhost",
+        "port" : 8080,
+        "content": "dist",
+        "endpoint": "paraview",
+        "proxy_file" : "./tests/logs/proxy-mapping.txt",
+        "sessionURL" : "ws://${host}:${port}/ws",
+        "timeout" : 25,
+        "log_dir" : "./tests/logs",
+        "upload_dir" : "./data",
+        "fields" : ["file", "host", "port", "updir"]
+    },
+    "sessionData" : { },
+    "resources" : [ { "host" : "localhost", "port_range" : [9001, 9010] } ],
+    "properties" : {
+        "pvpython": "pvpython_path",
+        "visualizer": "visualizer_path"
+    },
+    "apps" : {
+        "test-app" : {
+            "cmd" : [
+                "./tests/scripts/fake-process.sh", "$port", "${key1}"
+            ],
+            "ready_line" : "Start process"
+        },
+        "pvw" : {
+            "cmd" : [
+                "$pvpython", "$visualizer", "--port", "$port", "--authKey", "$secret"
+            ],
+            "ready_line" : "Starting factory"
+        }
+    }
+}
