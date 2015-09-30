@@ -1,3 +1,4 @@
 tests/launcher-conf.json
 node_modules
 tests/logs
+.npmrc
