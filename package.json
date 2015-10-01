@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "tonic-mouse-handler": "1.0.0",
-    "tonic-widgets": "1.0.0",
+    "tonic-widgets": "0.1.0",
 
     "autobahn": "0.9.6",
     "font-awesome": "4.4.0",
@@ -34,7 +34,6 @@
     "prestart": "PVPYTHON=$npm_package_config_pvpython && VIZ=$npm_package_config_visualizer && sed \"s|pvpython_path|$PVPYTHON|\" tests/launcher-conf.template | sed \"s|visualizer_path|$VIZ|\" > tests/launcher-conf.json",
     "start": "$npm_package_config_pvpython $npm_package_config_launcher tests/launcher-conf.json &",
     "stop": "ps | grep launcher | grep pvpython | awk '{ print $1 }' | xargs kill",
-
 
     "www": "tonic-site-generator site.config.js",
     "www:http": "tonic-site-generator site.config.js --local-test && serve docs/www",
